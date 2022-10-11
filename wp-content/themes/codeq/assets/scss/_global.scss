@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 $browser-context: 18; // Default
 
 @function rem($pixels, $context: $browser-context) {
@@ -16,10 +17,10 @@ $black: #000;
 $white: #FFF;
 // p
 $p-color: #000;
-$p-size: rem(16);
+$p-size: rem(18);
 // h3
 $h3-color: #000;
-$h3-size: rem(18);
+$h3-size: rem(28);
 // h2
 $h2-color: #000;
 $h2-size: rem(36);
@@ -43,10 +44,13 @@ $width-mobile: 32px;
     visibility: hidden;
 }
 html, body {
-font-family: 'Jost', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: $browser-context+px;
 -webkit-appearance:none;
 -webkit-tap-highlight-color: transparent;
+@include rwd(992) {
+  font-size: 14px;
+}
 }
 /* Safari 11+ */
 @media not all and (min-resolution:.001dpcm)
@@ -66,12 +70,16 @@ strong {
 }
 h1 {
     font-size: $h1-size;
+    @include phone {
+      font-size: 35px;
+    }
 }
 h2 {
     font-size: $h2-size;
 }
 h3 {
     font-size: $h3-size;
+    line-height: 32px;
 }
 h4 {
   font-size: rem(20);

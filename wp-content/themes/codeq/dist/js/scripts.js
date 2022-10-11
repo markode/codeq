@@ -3,6 +3,28 @@
 
 
   $(document).ready(function() {
+    $( '.button__container button' ).click( function() {
+      let pageID = $( '.persons__list' ).attr('pageid');
+      console.log(pageID);
+      console.log(rest_url.ajax,);
+      $.ajax({
+        type: 'post',
+        url: rest_url.ajax,
+        data: {
+        action: 'persons_list',
+        pageID: pageID,
+        },
+        error: function(response) {
+        console.log('error');
+        },
+        success: function(response) {
+        $("#ajax_persons").html(response);
+        },
+        complete: function(data) {
+        $(".button__container").slideToggle();
+        }
+      });
+    } )
     // Animate wow + animate.css
     var wow = new WOW({
         boxClass: 'wow', // animated element css class (default is wow)

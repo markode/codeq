@@ -118,13 +118,13 @@ remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
 // Stylesheet and Script
 
 function style_script() {
-  wp_enqueue_style( 'plugin-css', get_stylesheet_directory_uri() . '/dist/css/plugin.min.css', '', filemtime(get_stylesheet_directory() . '/dist/css/plugin.min.css' ) );
-  wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/dist/css/main.css', '', filemtime(get_stylesheet_directory() . '/dist/css/main.min.css' ));
-  wp_enqueue_style( 'styleWordpress', get_stylesheet_directory_uri() . '/style.css', '', filemtime(get_stylesheet_directory() . '/style.css' ));
+  wp_enqueue_style( 'plugin-css', get_stylesheet_directory_uri() . '/dist/css/plugin.min.css', '', filemtime(get_stylesheet_directory_uri() . '/dist/css/plugin.min.css' ) );
+  wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/dist/css/main.css', '', filemtime(get_stylesheet_directory_uri() . '/dist/css/main.min.css' ));
+  wp_enqueue_style( 'styleWordpress', get_stylesheet_directory_uri() . '/style.css', '', filemtime(get_stylesheet_directory_uri() . '/style.css' ));
   //wp_enqueue_style( 'googlefonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,800', '', '', true  );
 
-  if( is_page_template( 'offer_single.php' ))  {
-    wp_enqueue_style( 'single_offer', get_stylesheet_directory_uri() . '/dist/css/page/single_offer.css', '', filemtime(get_stylesheet_directory() . '/dist/css/page/single_offer.css' ));
+  if( is_page_template( 'list_persons.php' ))  {
+    wp_enqueue_style( 'list_person', get_stylesheet_directory_uri() . '/dist/css/page/list_person.css', '', filemtime(get_stylesheet_directory_uri() . '/dist/css/page/list_person.css' ));
   }
     // Scripts
   wp_deregister_script('jquery-script');
@@ -178,7 +178,7 @@ if( function_exists('acf_add_options_page') ) {
 }
 // require get_template_directory().'/inc/jsdefer.php';
 // require get_template_directory().'/inc/wpHtmlCompression.php';
-// require get_template_directory().'/inc/ajax.php';
+require_once get_stylesheet_directory().'/inc/ajax.php';
 // require get_template_directory().'/inc/breadcrumb.php';
 // require get_template_directory().'/inc/pagination.php';
 // require get_template_directory().'/inc/sitemap.php';
